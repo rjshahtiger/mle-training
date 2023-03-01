@@ -1,2 +1,3 @@
 instructions for run the code in conda environment:
-python {filename.py}
+1) conda
+2)python {filename.py}
