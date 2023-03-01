@@ -1,10 +1,3 @@
-  275  mkdir mle-training
-  276  ls
-  277  cd mle-training
-  278  git init
-  279  torch README
-  280  touch README
-  281  git history
   282  history
   283  history -10
   284  history -n -10
@@ -114,3 +107,16 @@
   388  history | tail -n 113
   389  history | tail -n 115
   390  history | tail -n 116 > README.txt
+  391  git branch
+  392  git checkout main
+  393  git status
+  394  git add -A
+  395  history | tail -n 116 > Code.txt
+  396  git add -A
+  397  mv Code.txt Assignment_1.2_code.txt
+  398  git status
+  399  git add -A
+  400  git status "add code"
+  401  git branch
+  402  git push -u origin issue
+  403  history | tail -n 122 > Assignment_1.2_code.txt
