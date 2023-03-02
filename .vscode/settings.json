@@ -1,0 +1,11 @@
+{
+    "editor.renderWhitespace": "trailing",
+    "editor.codeActionsOnSave": {
+    },
+    "editor.formatOnSave": true,
+    "python.formatting.provider": "black",
+    "python.isort.args":["--profile:isort"],
+    "[python]": {"editor.codeActionsOnSave": {"source.organizeImports": true}},
+    "python.linting.flake8Args": ["--ignore=E303"]
+
+}
