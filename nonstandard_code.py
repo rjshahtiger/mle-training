@@ -1,8 +1,11 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
 print('Assignment 1.3')
 
 
-def sum(a, b, 
-        c):
+def sum(a, b, c):
     return a + b + c
 
 
