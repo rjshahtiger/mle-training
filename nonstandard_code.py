@@ -1,7 +1,8 @@
 print('Assignment 1.3')
 
 
-def sum(a, b, c):
+def sum(a, b, 
+        c):
     return a + b + c
 
 
