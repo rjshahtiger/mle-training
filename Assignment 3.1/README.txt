@@ -12,3 +12,5 @@ from my_package import train
 from my_package import score
 from my_package import ingest_data
 
+5)install .whl file
+py -m pip install --index-url https://test.pypi.org/simple/ --no-deps my_package-0.1-py3-none-any
