@@ -19,20 +19,20 @@ parser.add_argument("--read_model_path",help="give input model path",default='lr
 args = parser.parse_args()
 
 # mlflow server --backend-store-uri mlruns/ --default-artifact-root mlruns/ --host 0.0.0.0 --port 5000
-remote_server_uri = "http://127.0.0.1:5000" # set to your server URI
-mlflow.set_tracking_uri(remote_server_uri)  # or set the MLFLOW_TRACKING_URI in the env
+# remote_server_uri = "http://127.0.0.1:5000" # set to your server URI
+# mlflow.set_tracking_uri(remote_server_uri)  # or set the MLFLOW_TRACKING_URI in the env
 
 
-exp_name = "House_price_prediction"
-mlflow.set_experiment(exp_name)
+# exp_name = "House_price_prediction"
+# mlflow.set_experiment(exp_name)
 
 
-with mlflow.start_run(run_name="scoring"):
+def score(validate_file_path,pickle_file_path):
     
     HOUSING_PATH = os.path.join("datasets", "housing","validate.csv")
-    HOUSING_PATH = os.path.join(args.read_train_file,HOUSING_PATH)
+    HOUSING_PATH = os.path.join(validate_file_path,HOUSING_PATH)
     HOUSING_URL = DOWNLOAD_ROOT + "datasets/housing/housing.tgz"
-    mlflow.log_param("output path", HOUSING_PATH)
+    #mlflow.log_param("output path", HOUSING_PATH)
     
     housing = pd.read_csv(HOUSING_PATH)
     housing["income_cat"] = pd.cut(housing["median_income"],
@@ -45,7 +45,7 @@ with mlflow.start_run(run_name="scoring"):
     housing = housing1.drop("median_house_value", axis=1)
     housing_labels = housing1["median_house_value"].copy()
     housing.drop("income_cat", axis=1,inplace=True)
-    mlflow.log_param("data_shape", housing.shape)
+    #mlflow.log_param("data_shape", housing.shape)
 
     median = housing["total_bedrooms"].median()  # option 3
     housing["total_bedrooms"].fillna(median, inplace=True)
@@ -89,12 +89,12 @@ with mlflow.start_run(run_name="scoring"):
         ])
 
     housing_prepared = full_pipeline.fit_transform(housing)
-    mlflow.log_param("data_shape", housing_prepared.shape)
+    #mlflow.log_param("data_shape", housing_prepared.shape)
 
     # linear Regression
     from sklearn.linear_model import LinearRegression
-    filename = args.output_model_path
-    mlflow.log_param('input_pickle_file',filename)
+    filename = pickle_file_path#args.output_model_path
+    #mlflow.log_param('input_pickle_file',filename)
     from joblib import Parallel, delayed
     import joblib
     lr_from_joblib = joblib.load(filename)
@@ -103,4 +103,7 @@ with mlflow.start_run(run_name="scoring"):
     import sklearn.metrics
     mse = sklearn.metrics.mean_squared_error(housing_labels, prediction)
     rmse = math.sqrt(mse)
-    mlflow.log_metric('rmse',rmse)
+    #mlflow.log_metric('rmse',rmse)
+    return
+
+score(args.read_validate_file,args.read_model_path)
