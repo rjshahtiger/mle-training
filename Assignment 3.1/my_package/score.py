@@ -14,8 +14,7 @@ def score(validate_file_path='',pickle_file_path=''):
     
     HOUSING_PATH = os.path.join("datasets", "housing","validate.csv")
     HOUSING_PATH = os.path.join(validate_file_path,HOUSING_PATH)
-    #HOUSING_URL = DOWNLOAD_ROOT + "datasets/housing/housing.tgz"
-    #mlflow.log_param("output path", HOUSING_PATH)
+    HOUSING_URL = DOWNLOAD_ROOT + "datasets/housing/housing.tgz"
     
     housing = pd.read_csv(HOUSING_PATH)
     housing["income_cat"] = pd.cut(housing["median_income"],
@@ -90,4 +89,3 @@ def score(validate_file_path='',pickle_file_path=''):
     print(rmse)
     return
 
-#score(args.read_validate_file,args.read_model_path)

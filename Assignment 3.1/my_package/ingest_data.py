@@ -13,9 +13,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import argparse
 
+
 # parser = argparse.ArgumentParser()
 # parser.add_argument("--DOWNLOAD_ROOT",help="give download data path",default='' )
 # args = parser.parse_args()
+
 
 DOWNLOAD_ROOT = "https://raw.githubusercontent.com/ageron/handson-ml/master/"
 HOUSING_PATH = os.path.join("datasets", "housing")
@@ -43,6 +45,7 @@ def load_housing_data(housing_path=HOUSING_PATH):
 # exp_name = "House_price_prediction_data_spliting"
 # mlflow.set_experiment(exp_name)
 
+
 def ingest_data(download_root=""):
     DOWNLOAD_ROOT = "https://raw.githubusercontent.com/ageron/handson-ml2/master/"
     HOUSING_PATH = os.path.join("datasets", "housing")
@@ -57,3 +60,4 @@ def ingest_data(download_root=""):
     train_set.to_csv(HOUSING_PATH+"//train.csv")
     test_set.to_csv(HOUSING_PATH+"//validate.csv")
     return
+
