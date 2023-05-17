@@ -3,6 +3,8 @@
 
 
 # import library
+from urllib.request import urlopen
+from shutil import copyfileobj
 import os
 import tarfile
 import urllib
@@ -11,15 +13,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--DOWNLOAD_ROOT",help="give download data path",default='' )
-args = parser.parse_args()
 
+# parser = argparse.ArgumentParser()
+# parser.add_argument("--DOWNLOAD_ROOT",help="give download data path",default='' )
+# args = parser.parse_args()
+
+
+DOWNLOAD_ROOT = "https://raw.githubusercontent.com/ageron/handson-ml/master/"
+HOUSING_PATH = os.path.join("datasets", "housing")
+HOUSING_URL = DOWNLOAD_ROOT + "datasets/housing/housing.tgz"
 
 def fetch_housing_data(HOUSING_PATH,housing_url=HOUSING_URL):
     os.makedirs(HOUSING_PATH, exist_ok=True)
     tgz_path = os.path.join(HOUSING_PATH, "housing.tgz")
-    urllib.request.urlretrieve(housing_url, tgz_path)
+    with urlopen(HOUSING_URL) as in_stream, open(tgz_path, 'wb') as out_file:
+        copyfileobj(in_stream, out_file)
+    #urllib.request.urlretrieve(housing_url, tgz_path)
     housing_tgz = tarfile.open(tgz_path)
     housing_tgz.extractall(path=HOUSING_PATH)
     housing_tgz.close()
@@ -36,13 +45,14 @@ def load_housing_data(housing_path=HOUSING_PATH):
 # exp_name = "House_price_prediction_data_spliting"
 # mlflow.set_experiment(exp_name)
 
-def ingest_data(download_root):
+
+def ingest_data(download_root=""):
     DOWNLOAD_ROOT = "https://raw.githubusercontent.com/ageron/handson-ml2/master/"
     HOUSING_PATH = os.path.join("datasets", "housing")
     HOUSING_PATH = os.path.join(download_root,HOUSING_PATH)
     HOUSING_URL = DOWNLOAD_ROOT + "datasets/housing/housing.tgz"
     #mlflow.log_param("output path", HOUSING_PATH)
-    fetch_housing_data(HOUSING_PATH)
+    fetch_housing_data(HOUSING_PATH,HOUSING_URL)
     housing=load_housing_data()
     # method 4
     from sklearn.model_selection import train_test_split
@@ -51,4 +61,3 @@ def ingest_data(download_root):
     test_set.to_csv(HOUSING_PATH+"//validate.csv")
     return
 
-ingest_data(args.DOWNLOAD_ROOT)
