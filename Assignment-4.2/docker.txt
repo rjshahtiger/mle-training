@@ -1,0 +1,2219 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20230510183547
+Username: TIGERANALYTICS\ronak.shah
+RunAs User: TIGERANALYTICS\ronak.shah
+Configuration Name: 
+Machine: TIGER02761 (Microsoft Windows NT 10.0.19045.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 23280
+PSVersion: 5.1.19041.2673
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.2673
+BuildVersion: 10.0.19041.2673
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is docker.txt
+PS D:\> docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+PS D:\> docker run -dit debian
+Unable to find image 'debian:latest' locally
+latest: Pulling from library/debian
+918547b94326: Pull complete
+Digest: sha256:63d62ae233b588d6b426b7b072d79d1306bfd02a72bff1fc045b8511cc89ee09
+Status: Downloaded newer image for debian:latest
+639ed90d009ee2ee97b34a00ab9d4ef82ecbdf31017f21af2714f8308b22e099
+PS D:\> docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                N
+AMES
+639ed90d009e   debian                   "bash"                   45 seconds ago   Up 44 seconds                        d
+reamy_hugle
+c0d817939ab6   docker/getting-started   "/docker-entrypoint.…"   28 minutes ago   Up 28 minutes   0.0.0.0:80->80/tcp   b
+oring_dijkstra
+PS D:\> docker stop 639
+639
+PS D:\> docker stop 639
+639
+PS D:\> docker stop reamy_hugle
+Error response from daemon: No such container: reamy_hugle
+PS D:\> docker stop dreamy_hugle
+dreamy_hugle
+PS D:\> docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                NAMES
+c0d817939ab6   docker/getting-started   "/docker-entrypoint.…"   33 minutes ago   Up 32 minutes   0.0.0.0:80->80/tcp   boring_dijkstra
+PS D:\> docker run -d -i -t debian
+947b84e87266938e110f91a7aed179b8b3a97aa6c4523c3bb12505b919561e2f
+PS D:\> docker images
+REPOSITORY               TAG       IMAGE ID       CREATED        SIZE
+hello-world              latest    9c7a54a9a43c   5 days ago     13.3kB
+debian                   latest    34b4fa67dc04   7 days ago     124MB
+docker/getting-started   latest    3e4394f6b72f   4 months ago   47MB
+PS D:\> docker inspect 947
+[
+    {
+        "Id": "947b84e87266938e110f91a7aed179b8b3a97aa6c4523c3bb12505b919561e2f",
+        "Created": "2023-05-10T13:44:51.393875145Z",
+        "Path": "bash",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 7244,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-05-10T13:44:51.894169859Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:34b4fa67dc04381e908b662ed69b3dbe8015fa723a746c66cc870a5330520981",
+        "ResolvConfPath": "/var/lib/docker/containers/947b84e87266938e110f91a7aed179b8b3a97aa6c4523c3bb12505b919561e2f/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/947b84e87266938e110f91a7aed179b8b3a97aa6c4523c3bb12505b919561e2f/hostname",
+        "HostsPath": "/var/lib/docker/containers/947b84e87266938e110f91a7aed179b8b3a97aa6c4523c3bb12505b919561e2f/hosts",
+        "LogPath": "/var/lib/docker/containers/947b84e87266938e110f91a7aed179b8b3a97aa6c4523c3bb12505b919561e2f/947b84e87266938e110f91a7aed179b8b3a97aa6c4523c3bb12505b919561e2f-json.log",
+        "Name": "/tender_beaver",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                50,
+                192
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/6d07774519c5089c2044f9edbdb32480592dc7bce913b0b6e2c0e25bad2747a5-init/diff:/var/lib/docker/overlay2/86e92001df52d03d717ca00d860e132135fecd
+2719c2bb2d38ed76ec67bfff9b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/6d07774519c5089c2044f9edbdb32480592dc7bce913b0b6e2c0e25bad2747a5/merged",
+                "UpperDir": "/var/lib/docker/overlay2/6d07774519c5089c2044f9edbdb32480592dc7bce913b0b6e2c0e25bad2747a5/diff",
+                "WorkDir": "/var/lib/docker/overlay2/6d07774519c5089c2044f9edbdb32480592dc7bce913b0b6e2c0e25bad2747a5/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "947b84e87266",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "bash"
+            ],
+            "Image": "debian",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "aa989e0459caab98dd6b355d7142b0c6a89f74b9cbe6508ed881774962c9dd6d",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/aa989e0459ca",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "1a12c18da92feb07d0061a6eeadcc8284f09f6057a5ce50df19354ee0ba426f7",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.3",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:03",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "bbc4f49dd6b0b97ef376a62f4f06e3d6fb99ed255f2e76e1f4207aa64d0f77c4",
+                    "EndpointID": "1a12c18da92feb07d0061a6eeadcc8284f09f6057a5ce50df19354ee0ba426f7",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:03",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+PS D:\> docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+9e3ea8720c6d: Pull complete
+bf36b6466679: Pull complete
+15a97cf85bb8: Pull complete
+9c2d6be5a61d: Pull complete
+6b7e4a5c7c7a: Pull complete
+8db4caa19df8: Pull complete
+Digest: sha256:480868e8c8c797794257e2abd88d0f9a8809b2fe956cbfbc05dcc0bca1f7cd43
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+PS D:\> docker images
+REPOSITORY               TAG       IMAGE ID       CREATED        SIZE
+hello-world              latest    9c7a54a9a43c   5 days ago     13.3kB
+nginx                    latest    448a08f1d2f9   6 days ago     142MB
+debian                   latest    34b4fa67dc04   7 days ago     124MB
+docker/getting-started   latest    3e4394f6b72f   4 months ago   47MB
+PS D:\> docker history nginx
+IMAGE          CREATED      CREATED BY                                      SIZE      COMMENT
+448a08f1d2f9   6 days ago   /bin/sh -c #(nop)  CMD ["nginx" "-g" "daemon…   0B
+<missing>      6 days ago   /bin/sh -c #(nop)  STOPSIGNAL SIGQUIT           0B
+<missing>      6 days ago   /bin/sh -c #(nop)  EXPOSE 80                    0B
+<missing>      6 days ago   /bin/sh -c #(nop)  ENTRYPOINT ["/docker-entr…   0B
+<missing>      6 days ago   /bin/sh -c #(nop) COPY file:e57eef017a414ca7…   4.62kB
+<missing>      6 days ago   /bin/sh -c #(nop) COPY file:abbcbf84dc17ee44…   1.27kB
+<missing>      6 days ago   /bin/sh -c #(nop) COPY file:5c18272734349488…   2.12kB
+<missing>      6 days ago   /bin/sh -c #(nop) COPY file:7b307b62e82255f0…   1.62kB
+<missing>      6 days ago   /bin/sh -c set -x     && addgroup --system -…   61.6MB
+<missing>      6 days ago   /bin/sh -c #(nop)  ENV PKG_RELEASE=1~bullseye   0B
+<missing>      6 days ago   /bin/sh -c #(nop)  ENV NJS_VERSION=0.7.11       0B
+<missing>      6 days ago   /bin/sh -c #(nop)  ENV NGINX_VERSION=1.23.4     0B
+<missing>      6 days ago   /bin/sh -c #(nop)  LABEL maintainer=NGINX Do…   0B
+<missing>      7 days ago   /bin/sh -c #(nop)  CMD ["bash"]                 0B
+<missing>      7 days ago   /bin/sh -c #(nop) ADD file:a2378c1b12e95db69…   80.5MB
+PS D:\> docker images --no-trunc
+REPOSITORY               TAG       IMAGE ID
+               CREATED        SIZE
+hello-world              latest    sha256:9c7a54a9a43cca047013b82af109fe963fde787f63f9e016fdc3
+384500c2823d   5 days ago     13.3kB
+nginx                    latest    sha256:448a08f1d2f94e8db6db9286fd77a3a4f3712786583720a12f16
+48abb8cace25   6 days ago     142MB
+debian                   latest    sha256:34b4fa67dc04381e908b662ed69b3dbe8015fa723a746c66cc87
+0a5330520981   7 days ago     124MB
+docker/getting-started   latest    sha256:3e4394f6b72fccefa2217067a7f7ff84d5d828afa9623867d68f
+ce4f9d862b6c   4 months ago   47MB
+PS D:\> docker tag --help
+
+Usage:  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+Aliases:
+  docker image tag, docker tag
+PS D:\> docker tag nginx:latest nginx:myblog_stable
+
+PS D:\> docker images
+REPOSITORY               TAG             IMAGE ID       CREATED        SIZE
+hello-world              latest          9c7a54a9a43c   5 days ago     13.3kB
+nginx                    latest          448a08f1d2f9   6 days ago     142MB
+nginx                    myblog_stable   448a08f1d2f9   6 days ago     142MB
+debian                   latest          34b4fa67dc04   7 days ago     124MB
+docker/getting-started   latest          3e4394f6b72f   4 months ago   47MB
+PS D:\> less dockerfile
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ less dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ less dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> docker build -t mynginx .
+[+] Building 0.1s (2/2) FINISHED
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 2B                                                       0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ERROR: failed to solve: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount2701
+056690/Dockerfile: no such file or directory
+PS D:\> docker build -t mynginx.
+ERROR: "docker buildx build" requires exactly 1 argument.
+See 'docker buildx build --help'.
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Start a build
+PS D:\> docker build -t mynginx 
+ERROR: "docker buildx build" requires exactly 1 argument.
+See 'docker buildx build --help'.
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Start a build
+PS D:\> docker build -t mynginx .
+[+] Building 0.0s (2/2) FINISHED
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load build definition from Dockerfile                                     0.0s
+ => => transferring dockerfile: 2B                                                       0.0s
+ERROR: failed to solve: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount2903
+542268/Dockerfile: no such file or directory
+PS D:\> ls
+
+
+    Directory: D:\
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        12-04-2023     16:52                .ipynb_checkpoints
+d-----        11-04-2023     17:39                .vscode
+d-----        16-04-2023     14:41                Assignment 2.1
+d-----        16-04-2023     16:56                Assignment 2.2
+d-----        23-04-2023     16:00                Assignment 3.1
+d-----        23-03-2023     16:05                code
+d-----        10-05-2023     16:58                insurance
+d-----        04-10-2022     16:02                kworking
+d-----        19-03-2023     18:24                mlflow
+d-----        05-04-2023     12:55                mlruns
+d-----        19-03-2023     17:58                mnt
+d-----        18-04-2023     15:56                New folder
+d-----        01-05-2023     12:45                packaging_tutorial
+d-----        11-04-2023     17:45                pep
+d-----        21-04-2023     12:30                ppppp
+d-----        19-03-2023     18:37                pydataberlin-2019-master
+d-----        11-03-2023     13:44                rj
+-a----        11-05-2023     00:08          16616 docker.txt
+-a----        11-05-2023     00:07             30 index.html
+-a----        12-04-2023     16:54          20542 Untitled.ipynb
+
+
+PS D:\> less Dockerfile
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED       STATUS       PO
+RTS                NAMES
+947b84e87266   debian                   "bash"                   5 hours ago   Up 5 hours
+                   tender_beaver
+c0d817939ab6   docker/getting-started   "/docker-entrypoint.…"   6 hours ago   Up 6 hours   0.
+0.0.0:80->80/tcp   boring_dijkstra
+PS D:\> less Dockerfile
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> docker run -dit nginx 
+e3ed3a43ad5aa06a1ef81951c486ecc8cba59ff7d55a20a8f7c200fcbe5e1ffa
+PS D:\> docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED         STATUS         PORTS                NAMES
+e3ed3a43ad5a   nginx                    "/docker-entrypoint.…"   5 seconds ago   Up 4 seconds   80/tcp               focused_neumann
+947b84e87266   debian                   "bash"                   5 hours ago     Up 5 hours                          tender_beaver
+c0d817939ab6   docker/getting-started   "/docker-entrypoint.…"   6 hours ago     Up 6 hours     0.0.0.0:80->80/tcp   boring_dijkstra
+PS D:\> less Dockerfile
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path
+is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> docker tag nginx:latest nginx:myblog_stable
+
+PS D:\> docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                NAMES
+e3ed3a43ad5a   nginx                    "/docker-entrypoint.…"   42 seconds ago   Up 40 seconds   80/tcp               focused_neumann
+947b84e87266   debian                   "bash"                   5 hours ago      Up 5 hours                           tender_beaver
+c0d817939ab6   docker/getting-started   "/docker-entrypoint.…"   6 hours ago      Up 6 hours      0.0.0.0:80->80/tcp   boring_dijkstra
+PS D:\> less Dockerfile
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path
+is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> ls
+
+
+    Directory: D:\
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        12-04-2023     16:52                .ipynb_checkpoints
+d-----        11-04-2023     17:39                .vscode
+d-----        16-04-2023     14:41                Assignment 2.1
+d-----        16-04-2023     16:56                Assignment 2.2
+d-----        23-04-2023     16:00                Assignment 3.1
+d-----        23-03-2023     16:05                code
+d-----        10-05-2023     16:58                insurance
+d-----        04-10-2022     16:02                kworking
+d-----        19-03-2023     18:24                mlflow
+d-----        05-04-2023     12:55                mlruns
+d-----        19-03-2023     17:58                mnt
+d-----        18-04-2023     15:56                New folder
+d-----        01-05-2023     12:45                packaging_tutorial
+d-----        11-04-2023     17:45                pep
+d-----        21-04-2023     12:30                ppppp
+d-----        19-03-2023     18:37                pydataberlin-2019-master
+d-----        11-03-2023     13:44                rj
+-a----        11-05-2023     00:08          16616 docker.txt
+-a----        11-05-2023     00:07             30 index.html
+-a----        12-04-2023     16:54          20542 Untitled.ipynb
+
+
+PS D:\> less Dockerfile
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path
+is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> docker build -t mynginx .
+
+
+    Directory: D:\
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        12-04-2023     16:52                .ipynb_checkpoints
+d-----        11-04-2023     17:39                .vscode
+d-----        16-04-2023     14:41                Assignment 2.1
+d-----        16-04-2023     16:56                Assignment 2.2
+d-----        23-04-2023     16:00                Assignment 3.1
+d-----        23-03-2023     16:05                code
+d-----        10-05-2023     16:58                insurance
+d-----        04-10-2022     16:02                kworking
+d-----        19-03-2023     18:24                mlflow
+d-----        05-04-2023     12:55                mlruns
+d-----        19-03-2023     17:58                mnt
+d-----        18-04-2023     15:56                New folder
+d-----        01-05-2023     12:45                packaging_tutorial
+d-----        11-04-2023     17:45                pep
+d-----        21-04-2023     12:30                ppppp
+d-----        19-03-2023     18:37                pydataberlin-2019-master
+d-----        11-03-2023     13:44                rj
+-a----        11-05-2023     00:08          16616 docker.txt
+-a----        11-05-2023     00:07             30 index.html
+-a----        12-04-2023     16:54          20542 Untitled.ipynb
+
+
+PS D:\> less Dockerfile
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or op
+erable program. Check the spelling of the name, or if a path was included, verify that the pat
+h
+is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> docker build -t mynginx .
+[+] Building 31.0s (5/8)
+ => [internal] load build definition from Dockerfile
+                                                                                             0
+.0s
+ => => transferring dockerfile: 508B
+                                                                                             0
+.0s
+ => [internal] load .dockerignore
+                                                                                             0
+.0s
+ => => transferring context: 2B
+                                                                                             0
+.0s
+ => [internal] load metadata for docker.io/library/debian:buster-slim
+                                                                                             7
+.8s
+ => [internal] load build context
+                                                                                             0
+.0s
+ => => transferring context: 67B
+                                                                                             0
+.0s
+[+] Building 33.6s (5/8)
+ => [internal] load build definition from Dockerfile
+                     0.0s
+ => => transferring dockerfile: 508B
+                     0.0s1 => [internal] load .dockerignore
+                                               0.0s
+ => => transferring context: 2B
+                     0.0s
+ => [internal] load metadata for docker.io/library/debian:buster-slim
+                     7.8s
+ => [internal] load build context
+                     0.0s
+ => => transferring context: 67B
+                     0.0s
+ => [1/4] FROM docker.io/library/debian:buster-slim@sha256:fdb38c743a538d301ddcedd3047c43bf4fc
+[+] Building 130.7s (9/9) FINISHED
+ => [internal] load build definition from Dockerfile                                     0.0sc
+ => => transferring dockerfile: 508B                                                     0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load metadata for docker.io/library/debian:buster-slim                    7.8s
+ => [internal] load build context                                                        0.0s
+ => => transferring context: 67B                                                         0.0sB
+ => [1/4] FROM docker.io/library/debian:buster-slim@sha256:fdb38c743a538d301ddcedd3047  14.4s
+ => => resolve docker.io/library/debian:buster-slim@sha256:fdb38c743a538d301ddcedd3047c  0.0s4
+ => => sha256:fdb38c743a538d301ddcedd3047c43bf4fcc70211c8534c5b613916910fe1 984B / 984B  0.0s
+ => => sha256:33bd25f52934b1ee80ba2fbce8ea9a52fa50d95f98b5c1574592889d182ff 529B / 529B  0.0s
+ => => sha256:4f3eee7000fe5dc0f17bd1198b59ccacd4c0553857155ad5d89942e95 1.46kB / 1.46kB  0.0s
+ => => sha256:25ff99d195814e98b7ef4708519299d9f177def504f9b718c61eb8 27.14MB / 27.14MB  13.4s
+ => => extracting sha256:25ff99d195814e98b7ef4708519299d9f177def504f9b718c61eb82c7f0b34  0.9s
+ => [2/4] RUN apt-get update     && apt-get install -y nginx     && apt-get clean      107.4s
+ => [3/4] RUN ln -sf /dev/stdout /var/log/nginx/access.log     && ln -sf /dev/stderr /v  0.5sk
+ => [4/4] COPY index.html /var/www/html/                                                 0.0s
+ => exporting to image                                                                   0.5s
+ => => exporting layers                                                                  0.5s
+ => => writing image sha256:201d690b17f2ad0309cba694e1f93824b64aa6c64f3efdb9d8bf00ee192  0.0s
+ => => naming to docker.io/library/mynginx                                               0.0s
+PS D:\> docker run -dit mynginx
+340e731aa9301a7808cb5af61268559738e609dae18487bb8cc3daca9a9b0719
+PS D:\> docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS
+    PORTS                NAMES
+340e731aa930   mynginx                  "nginx -g 'daemon of…"   23 seconds ago   Up 22 second
+s   80/tcp               intelligent_dijkstra
+e3ed3a43ad5a   nginx                    "/docker-entrypoint.…"   4 minutes ago    Up 4 minutes
+    80/tcp               focused_neumann
+947b84e87266   debian                   "bash"                   5 hours ago      Up 5 hours
+                         tender_beaver
+c0d817939ab6   docker/getting-started   "/docker-entrypoint.…"   6 hours ago      Up 6 hours
+    0.0.0.0:80->80/tcp   boring_dijkstra
+PS D:\> docker history mynginx 
+IMAGE          CREATED              CREATED BY                                      SIZE
+COMMENT
+201d690b17f2   About a minute ago   CMD ["nginx" "-g" "daemon off;"]                0B
+buildkit.dockerfile.v0
+<missing>      About a minute ago   EXPOSE map[80/tcp:{}]                           0B
+buildkit.dockerfile.v0
+<missing>      About a minute ago   COPY index.html /var/www/html/ # buildkit       30B
+buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c ln -sf /dev/stdout /var/log/n…   0B
+buildkit.dockerfile.v0
+<missing>      About a minute ago   RUN /bin/sh -c apt-get update     && apt-get…   78.9MB
+buildkit.dockerfile.v0
+<missing>      About a minute ago   ENV PKG_RELEASE=1~buster                        0B
+buildkit.dockerfile.v0
+<missing>      About a minute ago   ENV NJS_VERSION=0.3.3                           0B
+buildkit.dockerfile.v0
+<missing>      About a minute ago   ENV NGINX_VERSION=1.17.2                        0B
+buildkit.dockerfile.v0
+<missing>      About a minute ago   LABEL maintainer=NGINX Docker Maintainers <d…   0B
+buildkit.dockerfile.v0
+<missing>      7 days ago           /bin/sh -c #(nop)  CMD ["bash"]                 0B
+<missing>      7 days ago           /bin/sh -c #(nop) ADD file:00bc0eda6d2eb0f8a…   69.3MB
+PS D:\> docker images
+REPOSITORY               TAG             IMAGE ID       CREATED         SIZE
+mynginx                  latest          201d690b17f2   2 minutes ago   148MB
+hello-world              latest          9c7a54a9a43c   6 days ago      13.3kB
+nginx                    latest          448a08f1d2f9   6 days ago      142MB
+nginx                    myblog_stable   448a08f1d2f9   6 days ago      142MB
+debian                   latest          34b4fa67dc04   7 days ago      124MB
+docker/getting-started   latest          3e4394f6b72f   4 months ago    47MB
+PS D:\> docker rmi nginx:myblog_stable
+Untagged: nginx:myblog_stable
+PS D:\> docker images
+REPOSITORY               TAG       IMAGE ID       CREATED         SIZE
+mynginx                  latest    201d690b17f2   3 minutes ago   148MB
+hello-world              latest    9c7a54a9a43c   6 days ago      13.3kB
+nginx                    latest    448a08f1d2f9   6 days ago      142MB
+debian                   latest    34b4fa67dc04   7 days ago      124MB
+docker/getting-started   latest    3e4394f6b72f   4 months ago    47MB
+PS D:\> docker rmi nginx:latest
+Error response from daemon: conflict: unable to remove repository reference "nginx:latest" (mu
+st force) - container e3ed3a43ad5a is using its referenced image 448a08f1d2f9
+PS D:\> docker rmi nginx:latest
+Error response from daemon: conflict: unable to remove repository reference "nginx:latest" (mu
+st force) - container e3ed3a43ad5a is using its referenced image 448a08f1d2f9
+PS D:\> docker rmi -f nginx:latest
+Untagged: nginx:latest
+Untagged: nginx@sha256:480868e8c8c797794257e2abd88d0f9a8809b2fe956cbfbc05dcc0bca1f7cd43
+PS D:\> docker images
+REPOSITORY               TAG       IMAGE ID       CREATED         SIZE
+mynginx                  latest    201d690b17f2   5 minutes ago   148MB
+hello-world              latest    9c7a54a9a43c   6 days ago      13.3kB
+<none>                   <none>    448a08f1d2f9   6 days ago      142MB
+debian                   latest    34b4fa67dc04   7 days ago      124MB
+docker/getting-started   latest    3e4394f6b72f   4 months ago    47MB
+PS D:\> docker image prune
+WARNING! This will remove all dangling images.
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B
+PS D:\> docker system df
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          5         5         461.4MB   0B (0%)
+Containers      7         4         2.215kB   0B (0%)
+Local Volumes   1         0         0B        0B
+Build Cache     7         0         30B       30B
+PS D:\> docker pull jenkines:latest
+Error response from daemon: pull access denied for jenkines, repository does not exist or may
+require 'docker login': denied: requested access to the resource is denied
+PS D:\> docker pull jenkins:latest
+Error response from daemon: manifest for jenkins:latest not found: manifest unknown: manifest
+unknown
+PS D:\> docker pull jenkins:latest
+Error response from daemon: manifest for jenkins:latest not found: manifest unknown: manifest
+unknown
+PS D:\> docker pull jenkins
+Using default tag: latest
+Error response from daemon: manifest for jenkins:latest not found: manifest unknown: manifest
+unknown
+PS D:\> docker pull jenkins
+Using default tag: latest
+Error response from daemon: manifest for jenkins:latest not found: manifest unknown: manifest
+unknown
+PS D:\> docker pull httpd:2-alpine
+2-alpine: Pulling from library/httpd
+f56be85fc22e: Pull complete
+3b0762594298: Pull complete
+d57f06c5a70c: Pull complete
+add4d5bc8a71: Pull complete
+ae430e2a98db: Pull complete
+36d8ddf7fbf3: Pull complete
+Digest: sha256:03c154f29d68648c335a19c8bfca1562251bc8af534e10c6f87361551c381d21
+Status: Downloaded newer image for httpd:2-alpine
+docker.io/library/httpd:2-alpine
+PS D:\> docker images
+REPOSITORY               TAG        IMAGE ID       CREATED          SIZE
+mynginx                  latest     201d690b17f2   15 minutes ago   148MB
+hello-world              latest     9c7a54a9a43c   6 days ago       13.3kB
+<none>                   <none>     448a08f1d2f9   6 days ago       142MB
+debian                   latest     34b4fa67dc04   7 days ago       124MB
+httpd                    2-alpine   6a2d79fdc262   4 weeks ago      57MB
+docker/getting-started   latest     3e4394f6b72f   4 months ago     47MB
+PS D:\> docker system df
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          6         4         518.4MB   205.2MB (39%)
+Containers      6         3         2.213kB   0B (0%)
+Local Volumes   1         0         0B        0B
+Build Cache     7         0         30B       30B
+PS D:\> docker rmi httpd:2-alpine
+Untagged: httpd:2-alpine
+Untagged: httpd@sha256:03c154f29d68648c335a19c8bfca1562251bc8af534e10c6f87361551c381d21
+Deleted: sha256:6a2d79fdc26233f268236a72cb307cb6daf909d7cc878e5454b3b41bc2f59541
+Deleted: sha256:94c1b7c5ea62862fb76370195693de89e3b2752908eeaa8ecf8f76a7f2302e5e
+Deleted: sha256:4840e19fee4e796e8e0654f2b9f8e5bf58a69fc2b67e37eaa9da785cce04fb6e
+Deleted: sha256:e902d44caf6037125bb17a1f69ac8b1b0d5eafc50709f48f41cc686161632720
+Deleted: sha256:ca82f7607e7ca14e2832959ea5a678118fc594b1f2f1ca188c12205bdb48492b
+Deleted: sha256:aa26eeba8e0a2d60d372a28c686b2fe4e0a2fe1e53a5b12dc21e10dee94c5649
+Deleted: sha256:f1417ff83b319fbdae6dd9cd6d8c9c88002dcd75ecf6ec201c8c6894681cf2b5
+PS D:\> docker run -dit debian
+a19cac6b5baada1be059f04101bc16d08fb168ae43980a1f9fd9ef4be7046167
+PS D:\> docker run -dit --name=web debian
+2d4bdad713b4874ee0aabfdb188d01efb00e518ee6f940484d54997cdf84b388
+PS D:\> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+2d4bdad713b4   debian    "bash"    22 seconds ago   Up 21 seconds             web
+a19cac6b5baa   debian    "bash"    51 seconds ago   Up 49 seconds             youthful_gauss
+PS D:\> docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED              STATUS              PORTS     NAMES
+2d4bdad713b4   debian    "bash"    36 seconds ago       Up 36 seconds                 web
+a19cac6b5baa   debian    "bash"    About a minute ago   Up About a minute             youthful
+_gauss
+PS D:\> docker run -dit --name=third_container debian
+cc036fdd0eaa8f5d1cacbf7488382efe9cad654202274f8430f6a0faeedd2551
+PS D:\> docker ps -l
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+cc036fdd0eaa   debian    "bash"    11 seconds ago   Up 11 seconds             third_container
+PS D:\> docker run -dit --name=web debian
+docker: Error response from daemon: Conflict. The container name "/web" is already in use by c
+ontainer "2d4bdad713b4874ee0aabfdb188d01efb00e518ee6f940484d54997cdf84b388". You have to remov
+e (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+PS D:\> docker stop web
+web
+PS D:\> docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED              STATUS                        PORTS
+  NAMES
+cc036fdd0eaa   debian    "bash"    About a minute ago   Up About a minute
+  third_container
+2d4bdad713b4   debian    "bash"    3 minutes ago        Exited (137) 24 seconds ago
+  web
+a19cac6b5baa   debian    "bash"    3 minutes ago        Up 3 minutes
+  youthful_gauss
+PS D:\> docker ps 
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+cc036fdd0eaa   debian    "bash"    2 minutes ago   Up 2 minutes             third_container
+a19cac6b5baa   debian    "bash"    4 minutes ago   Up 4 minutes             youthful_gauss
+PS D:\> docker rm web
+web
+PS D:\> docker run -dit --name=web debian
+da4136ff96fd0c912a0f8352d946332b564e8d9517bc7dd0a7b6a880a35ccad2
+PS D:\> docker ps 
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+da4136ff96fd   debian    "bash"    13 seconds ago   Up 13 seconds             web
+cc036fdd0eaa   debian    "bash"    3 minutes ago    Up 3 minutes              third_container
+a19cac6b5baa   debian    "bash"    5 minutes ago    Up 5 minutes              youthful_gauss
+PS D:\> docker stop web
+web
+PS D:\> docker start web
+web
+PS D:\> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED              STATUS         PORTS     NAMES
+da4136ff96fd   debian    "bash"    About a minute ago   Up 5 seconds             web
+cc036fdd0eaa   debian    "bash"    3 minutes ago        Up 3 minutes             third_contain
+er
+a19cac6b5baa   debian    "bash"    6 minutes ago        Up 6 minutes             youthful_gaus
+s
+PS D:\> docker stop web
+web
+PS D:\> docker rm web
+web
+PS D:\> docker run -dit --restart=always --name=fourth_container debian
+8a3fe5e98d5a1d46db2e46b584e26d2ff4c8a36e62c338586cf9b54f76e7f508
+PS D:\> docker inspect fourth_container | grep -A RestartPolicy
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:35
++ docker inspect fourth_container | grep -A RestartPolicy
++                                   ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:35
++ docker inspect fourth_container | grep -A RestartPolicy
++                                   ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> docker inspect fourth_container | grep -A3 RestartPolicy
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:35
++ docker inspect fourth_container | grep -A3 RestartPolicy
++                                   ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:35
++ docker inspect fourth_container | grep -A3 RestartPolicy
++                                   ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> docker inspect fourth_container | findstr -A3 RestartPolicy
+FINDSTR: /A ignored
+FINDSTR: /3 ignored
+            "RestartPolicy": {
+PS D:\> docker inspect fourth_container | findstr -A5 RestartPolicy
+FINDSTR: /A ignored
+FINDSTR: /5 ignored
+            "RestartPolicy": {
+PS D:\> docker inspect fourth_container | findstr RestartPolicy
+            "RestartPolicy": {
+PS D:\> docker stop fourth_container
+fourth_container
+PS D:\> docker kill third_container
+third_container
+PS D:\> docker system prune
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - all dangling build cache
+
+Are you sure you want to continue? [y/N] n
+PS D:\> docker logs
+"docker logs" requires exactly 1 argument.
+See 'docker logs --help'.
+
+Usage:  docker logs [OPTIONS] CONTAINER
+
+Fetch the logs of a container
+PS D:\> docker logs 184
+Error response from daemon: No such container: 184
+PS D:\> docker logs -t 184
+Error response from daemon: No such container: 184
+PS D:\> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+a19cac6b5baa   debian    "bash"    18 minutes ago   Up 18 minutes             youthful_gauss
+PS D:\> docker logs -t a19
+
+PS D:\> docker logs -t a19
+
+PS D:\> docker logs -tf nice_buck
+Error response from daemon: No such container: nice_buck
+PS D:\> docker logs -tf youthful_gauss
+
+PS D:\> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS D:\> docker run --name our_nginx -d -p 8080:80 nginx
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+Digest: sha256:480868e8c8c797794257e2abd88d0f9a8809b2fe956cbfbc05dcc0bca1f7cd43
+Status: Downloaded newer image for nginx:latest
+08d38b9b123c1da4663505358e1ecbce89743f4bd6ca149319a4c3bfc56d9a80
+PS D:\> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS
+            NAMES
+08d38b9b123c   nginx     "/docker-entrypoint.…"   13 seconds ago   Up 12 seconds   0.0.0.0:808
+0->80/tcp   our_nginx
+a19cac6b5baa   debian    "bash"                   9 hours ago      Up 9 hours
+            youthful_gauss
+PS D:\> curl http://localhost:8080
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : <!DOCTYPE html>
+                    <html>
+                    <head>
+                    <title>Welcome to nginx!</title>
+                    <style>
+                    html { color-scheme: light dark; }
+                    body { width: 35em; margin: 0 auto;
+                    font-family: Tahoma, Verdana, Arial, sans-serif; }
+                    </style...
+RawContent        : HTTP/1.1 200 OK
+                    Connection: keep-alive
+                    Accept-Ranges: bytes
+                    Content-Length: 615
+                    Content-Type: text/html
+                    Date: Thu, 11 May 2023 05:46:58 GMT
+                    ETag: "64230162-267"
+                    Last-Modified: Tue, 28 Mar 2023 ...
+Forms             : {}
+Headers           : {[Connection, keep-alive], [Accept-Ranges, bytes], [Content-Length,
+                    615], [Content-Type, text/html]...}
+Images            : {}
+InputFields       : {}
+Links             : {@{innerHTML=nginx.org; innerText=nginx.org; outerHTML=<A
+                    href="http://nginx.org/">nginx.org</A>; outerText=nginx.org; tagName=A;
+                    href=http://nginx.org/}, @{innerHTML=nginx.com; innerText=nginx.com;
+                    outerHTML=<A href="http://nginx.com/">nginx.com</A>;
+                    outerText=nginx.com; tagName=A; href=http://nginx.com/}}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 615
+
+
+
+PS D:\> ip a
+ip : The term 'ip' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ ip a
++ ~~
+    + CategoryInfo          : ObjectNotFound: (ip:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ip : The term 'ip' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ ip a
++ ~~
+    + CategoryInfo          : ObjectNotFound: (ip:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet 6:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter Ethernet:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Ethernet adapter vEthernet (WSL):
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::86e3:eec:d523:3126%58
+   IPv4 Address. . . . . . . . . . . : 172.21.112.1
+   Subnet Mask . . . . . . . . . . . : 255.255.240.0
+   Default Gateway . . . . . . . . . :
+
+Wireless LAN adapter Local Area Connection* 1:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Local Area Connection* 2:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+
+Wireless LAN adapter Wi-Fi:
+
+   Connection-specific DNS Suffix  . : www.tendawifi.com
+   Link-local IPv6 Address . . . . . : fe80::5352:d07c:bb7c:836d%18
+   IPv4 Address. . . . . . . . . . . : 192.168.0.100
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.0.1
+
+Ethernet adapter Bluetooth Network Connection:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . :
+PS D:\> docker run -dit --name second_apache httpd /bin/bash
+Unable to find image 'httpd:latest' locally
+latest: Pulling from library/httpd
+9e3ea8720c6d: Already exists
+35c516cd98eb: Pull complete
+3050fa5900bc: Pull complete
+1de2597cdda4: Pull complete
+4ee10de7e720: Pull complete
+Digest: sha256:70189d4606997e78771b4e05571d6babd6b5e8fd9e19c53fa3ccb9a310c318ec
+Status: Downloaded newer image for httpd:latest
+ae70e8d5d2935cdeb7aa076f3288988397d6a288d443a40ffce7958464a6bd13
+PS D:\> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS
+            NAMES
+ae70e8d5d293   httpd     "/bin/bash"              22 seconds ago   Up 20 seconds   80/tcp
+            second_apache
+08d38b9b123c   nginx     "/docker-entrypoint.…"   4 hours ago      Up 4 hours      0.0.0.0:808
+0->80/tcp   our_nginx
+a19cac6b5baa   debian    "bash"                   12 hours ago     Up 12 hours
+            youthful_gauss
+PS D:\> hostname
+TIGER02761
+PS D:\> docker run -dit --name busylogs -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
+Unable to find image 'jenkins/jenkins:lts' locally
+lts: Pulling from jenkins/jenkins
+b0248cf3e63c: Pull complete
+62f383c3c765: Pull complete
+67400627246a: Pull complete
+b3351de6687f: Pull complete
+85f1bf17d08b: Pull complete
+2a3961df564a: Pull complete
+1c4b1dd83b8f: Pull complete
+941d0a3e91b6: Pull complete
+f07d5591ca96: Pull complete
+d1e9c8dee430: Pull complete
+48724caf6170: Pull complete
+95ce98d61add: Pull complete
+057e4a19bf34: Pull complete
+Digest: sha256:ec0f8518804bd653830ed201cb2899545ffd3907b4f092289c88d1dc550128d8
+Status: Downloaded newer image for jenkins/jenkins:lts
+9e3ec132f7c75888590751204dc23ab79de76817cfd75211a3f1af8f623f2e60
+docker: Error response from daemon: driver failed programming external connectivity on endpoin
+t busylogs (f4bc1bcbd90ea28ca21c3d49d292975a13b2f26501b19c3ce0eaa949e5af8e55): Bind for 0.0.0.
+0:8080 failed: port is already allocated.
+PS D:\>  docker pull docker.io/ubuntu:bionic
+bionic: Pulling from library/ubuntu
+4e43cebf9258: Pull complete
+Digest: sha256:14f1045816502e16fcbfc0b2a76747e9f5e40bc3899f8cfe20745abaafeaeab3
+Status: Downloaded newer image for ubuntu:bionic
+docker.io/library/ubuntu:bionic
+PS D:\>  docker pull registry.hub.docker.com/library/ubuntu:bionic
+bionic: Pulling from library/ubuntu
+Digest: sha256:14f1045816502e16fcbfc0b2a76747e9f5e40bc3899f8cfe20745abaafeaeab3
+Status: Downloaded newer image for registry.hub.docker.com/library/ubuntu:bionic
+registry.hub.docker.com/library/ubuntu:bionic
+PS D:\> docker images
+REPOSITORY                               TAG       IMAGE ID       CREATED        SIZE
+ubuntu                                   bionic    97ba4bbc97fc   3 days ago     63.2MB
+registry.hub.docker.com/library/ubuntu   bionic    97ba4bbc97fc   3 days ago     63.2MB
+mynginx                                  latest    201d690b17f2   5 days ago     148MB
+hello-world                              latest    9c7a54a9a43c   11 days ago    13.3kB
+httpd                                    latest    28505717e3ae   12 days ago    145MB
+nginx                                    latest    448a08f1d2f9   12 days ago    142MB
+jenkins/jenkins                          lts       976459dc87b0   12 days ago    472MB
+debian                                   latest    34b4fa67dc04   13 days ago    124MB
+docker/getting-started                   latest    3e4394f6b72f   4 months ago   47MB
+PS D:\>  docker run -dit registry.hub.docker.com/library/ubuntu:bionic
+4b4ef43f0f76ee23a461defcaa5440720aab4733f30bd9ab12a047617691b357
+PS D:\> docker rmi ubuntu:bionic
+Untagged: ubuntu:bionic
+Untagged: ubuntu@sha256:14f1045816502e16fcbfc0b2a76747e9f5e40bc3899f8cfe20745abaafeaeab3
+PS D:\> docker run ubuntu:bionic
+Unable to find image 'ubuntu:bionic' locally
+bionic: Pulling from library/ubuntu
+Digest: sha256:14f1045816502e16fcbfc0b2a76747e9f5e40bc3899f8cfe20745abaafeaeab3
+Status: Downloaded newer image for ubuntu:bionic
+PS D:\> cat Dockerfile
+# Abbreviated Dockerfile for nginx
+
+FROM debian:buster-slim
+LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
+
+ENV NGINX_VERSION   1.17.2
+ENV NJS_VERSION     0.3.3
+ENV PKG_RELEASE     1~buster
+
+RUN apt-get update \
+    && apt-get install -y nginx \
+    && apt-get clean
+
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
+
+COPY index.html /var/www/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+PS D:\> cd docker
+PS D:\docker> cat Dockerfile
+FROM debian:latest
+LABEL maintainer="Jason Cannon"
+ENTRYPOINT ["/bin/ping"]
+CMD ["www.docker.com"]
+PS D:\docker> docker build -t jasonc/dockerping:latest
+ERROR: "docker buildx build" requires exactly 1 argument.
+See 'docker buildx build --help'.
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Start a build
+PS D:\docker> docker build -t jasonc/dockerping:latest .
+[+] Building 0.2s (5/5) FINISHED
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 136B                                                     0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load metadata for docker.io/library/debian:latest                         0.0s
+ => [1/1] FROM docker.io/library/debian:latest                                           0.0s
+ => exporting to image                                                                   0.0s
+ => => exporting layers                                                                  0.0s
+ => => writing image sha256:4014e934eed56105e0d5b84359324d320d358010160992495621ab0ee9f  0.0s
+ => => naming to docker.io/jasonc/dockerping:latest                                      0.0s
+PS D:\docker> docker image
+
+Usage:  docker image COMMAND
+
+Manage images
+
+Commands:
+  build       Build an image from a Dockerfile
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Display detailed information on one or more images
+  load        Load an image from a tar archive or STDIN
+  ls          List images
+  prune       Remove unused images
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  rm          Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+Run 'docker image COMMAND --help' for more information on a command.
+PS D:\docker> docker images
+REPOSITORY                               TAG       IMAGE ID       CREATED        SIZE
+ubuntu                                   bionic    97ba4bbc97fc   4 days ago     63.2MB
+registry.hub.docker.com/library/ubuntu   bionic    97ba4bbc97fc   4 days ago     63.2MB
+mynginx                                  latest    201d690b17f2   5 days ago     148MB
+hello-world                              latest    9c7a54a9a43c   11 days ago    13.3kB
+httpd                                    latest    28505717e3ae   12 days ago    145MB
+nginx                                    latest    448a08f1d2f9   12 days ago    142MB
+jenkins/jenkins                          lts       976459dc87b0   12 days ago    472MB
+jasonc/dockerping                        latest    4014e934eed5   13 days ago    124MB
+debian                                   latest    34b4fa67dc04   13 days ago    124MB
+docker/getting-started                   latest    3e4394f6b72f   4 months ago   47MB
+PS D:\docker> docker run jasonc/dockerping google.com
+docker: Error response from daemon: failed to create shim task: OCI runtime create failed: run
+c create failed: unable to start container process: exec: "/bin/ping": stat /bin/ping: no such
+ file or directory: unknown.
+PS D:\docker> docker build -t jasonc/nettools nettools/
+ERROR: unable to prepare context: path "nettools/" not found
+PS D:\docker> docker build -t jasonc/nettools 
+ERROR: "docker buildx build" requires exactly 1 argument.
+See 'docker buildx build --help'.
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Start a build
+PS D:\docker> docker build -t jasonc/nettools 
+ERROR: "docker buildx build" requires exactly 1 argument.
+See 'docker buildx build --help'.
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Start a build
+PS D:\docker> docker build -t nettools 
+ERROR: "docker buildx build" requires exactly 1 argument.
+See 'docker buildx build --help'.
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Start a build
+PS D:\docker> docker build -t jasonc/nettools nettools/
+[+] Building 0.0s (0/0)
+ERROR: unable to prepare context: path "nettools/" not found
+PS D:\docker> docker build -t jasonc/nettools nettools/
+[+] Building 0.1s (2/2) FINISHED
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 2B                                                       0.0s
+ => CANCELED [internal] load .dockerignore                                               0.1s
+ => => transferring context:                                                             0.0s
+ERROR: failed to solve: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount6556
+56109/Dockerfile: no such file or directory
+PS D:\docker> docker build -t jasonc/nettools nettools/
+2023/05/17 12:24:19 http2: server: error reading preface from client //./pipe/docker_engine: f
+ile has already been closed
+[+] Building 0.1s (2/2) FINISHED
+ => [internal] load build definition from Dockerfile                                     0.0s
+ => => transferring dockerfile: 2B                                                       0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ERROR: failed to solve: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount5106
+98469/Dockerfile: no such file or directory
+PS D:\docker> docker build -t nettools nettools/
+[+] Building 0.1s (2/2) FINISHED
+ => [internal] load build definition from Dockerfile                                     0.0s
+ => => transferring dockerfile: 2B                                                       0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ERROR: failed to solve: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount2959
+418641/Dockerfile: no such file or directory
+PS D:\docker> docker build -t nettools:allow-override -f Dpckerfile-allow-override .
+[+] Building 0.1s (2/2) FINISHED
+ => [internal] load build definition from Dpckerfile-allow-override                      0.1s
+ => => transferring dockerfile: 2B                                                       0.0s
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ERROR: failed to solve: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount7901
+73318/Dpckerfile-allow-override: no such file or directory
+PS D:\docker> mkdir tempbuild
+
+
+    Directory: D:\docker
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        17-05-2023     13:26                tempbuild
+
+
+PS D:\docker> cd tempbuild
+PS D:\docker\tempbuild> nano dockerfile
+nano : The term 'nano' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ nano dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (nano:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+nano : The term 'nano' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ nano dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (nano:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\docker\tempbuild> cat Dockerfile
+cat : Cannot find path 'D:\docker\tempbuild\Dockerfile' because it does not exist.
+At line:1 char:1
++ cat Dockerfile
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\docker\tempbuild\Dockerfile:String) [Get-Content], 
+ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+cat : Cannot find path 'D:\docker\tempbuild\Dockerfile' because it does not exist.
+At line:1 char:1
++ cat Dockerfile
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\docker\tempbuild\Dockerfile:String) [Get-C
+   ontent], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+
+PS D:\docker\tempbuild> cat Dockerfile
+FROM debian:stable
+LABEL maintainer="Ronak Shah"
+RUN apt update && apt install -y nano && apt clean
+CMD [ "/bin/bash" ]
+PS D:\docker\tempbuild> docker username
+docker: 'username' is not a docker command.
+See 'docker --help'
+PS D:\docker\tempbuild> docker build -t rjshah70r/nanotest:latest .
+[+] Building 51.6s (6/6) FINISHED
+ => [internal] load build definition from Dockerfile                                      0.1s
+ => => transferring dockerfile: 159B                                                      0.0s
+ => [internal] load .dockerignore                                                         0.1s
+ => => transferring context: 2B                                                           0.0s
+ => [internal] load metadata for docker.io/library/debian:stable                          7.9s
+ => [1/2] FROM docker.io/library/debian:stable@sha256:4291be2c22ed27ed71aeeb5150f3cddba  21.6s
+ => => resolve docker.io/library/debian:stable@sha256:4291be2c22ed27ed71aeeb5150f3cddba1  0.0s
+ => => sha256:a41b5b0c54c58c0af4f64bb03f0dfa7f83beb70014d55ea8b4877fcfaf928f 529B / 529B  0.0s
+ => => sha256:75781dd0980de9800f71d8c784ddf5dd0c1fc89323d850c7bd6507b9f7 1.46kB / 1.46kB  0.0s
+ => => sha256:6a918b9b11d0639c4549e67523a135bcc5e27da3087ddd02fa97bf8 55.05MB / 55.05MB  20.0s
+ => => sha256:4291be2c22ed27ed71aeeb5150f3cddba11ef2a44db978d06cafe9c845 1.85kB / 1.85kB  0.0s
+ => => extracting sha256:6a918b9b11d0639c4549e67523a135bcc5e27da3087ddd02fa97bf8c8e71ec2  1.3s
+ => [2/2] RUN apt update && apt install -y nano && apt clean                             21.8s
+ => exporting to image                                                                    0.2s
+ => => exporting layers                                                                   0.1s
+ => => writing image sha256:5be0f58fdcba661c7a8ab4cec8b920adb32356838e40bbdbbc5a6622ab1a  0.0s
+ => => naming to docker.io/rjshah70r/nanotest:latest                                      0.0s
+PS D:\docker\tempbuild> docker images
+REPOSITORY                               TAG       IMAGE ID       CREATED              SIZE
+rjshah70r/nanotest                       latest    5be0f58fdcba   About a minute ago   146MB
+registry.hub.docker.com/library/ubuntu   bionic    97ba4bbc97fc   4 days ago           63.2MB
+ubuntu                                   bionic    97ba4bbc97fc   4 days ago           63.2MB
+mynginx                                  latest    201d690b17f2   6 days ago           148MB
+hello-world                              latest    9c7a54a9a43c   12 days ago          13.3kB
+httpd                                    latest    28505717e3ae   13 days ago          145MB
+nginx                                    latest    448a08f1d2f9   13 days ago          142MB
+jenkins/jenkins                          lts       976459dc87b0   13 days ago          472MB
+jasonc/dockerping                        latest    4014e934eed5   2 weeks ago          124MB
+debian                                   latest    34b4fa67dc04   2 weeks ago          124MB
+docker/getting-started                   latest    3e4394f6b72f   4 months ago         47MB
+PS D:\docker\tempbuild> docker run --name nanotest -it rjshah70r/nanotest
+root@82260d6fb006:/# which nano
+/bin/nano
+root@82260d6fb006:/# exit
+exit
+PS D:\docker\tempbuild> docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker I
+D, head over to https://hub.docker.com to create one.
+Username: rjshah70r
+Password:
+Login Succeeded
+
+Logging in with your password grants your terminal complete access to your account.
+For better security, log in with a limited-privilege personal access token. Learn more at https
+://docs.docker.com/go/access-tokens/
+PS D:\docker\tempbuild> docker push rjshah70r/nanotest:latest
+The push refers to repository [docker.io/rjshah70r/nanotest]
+5b850b0db4c6: Pushed
+7c76bc7086fd: Mounted from library/debian
+latest: digest: sha256:bc17b734c8526cf10d1207ffc037224929d26c331c6691216ef014b6b574fd0f size: 7
+41
+PS D:\docker\tempbuild> docker volume create testdata
+testdata
+PS D:\docker\tempbuild> docker volume ls
+DRIVER    VOLUME NAME
+local     project
+local     testdata
+PS D:\docker\tempbuild> docker volume rm testdata
+testdata
+PS D:\docker\tempbuild> docker volume ls
+DRIVER    VOLUME NAME
+local     project
+PS D:\docker\tempbuild> docker volume project
+
+Usage:  docker volume COMMAND
+
+Manage volumes
+
+Commands:
+  create      Create a volume
+  inspect     Display detailed information on one or more volumes
+  ls          List volumes
+  prune       Remove all unused local volumes
+  rm          Remove one or more volumes
+  update      Update a volume (cluster volumes only)
+
+Run 'docker volume COMMAND --help' for more information on a command.
+PS D:\docker\tempbuild> docker volume rm project
+project
+PS D:\docker\tempbuild> docker volume ls
+DRIVER    VOLUME NAME
+PS D:\docker\tempbuild> docker volume create mydata1
+mydata1
+PS D:\docker\tempbuild> docker volume inspect mydata1
+[
+    {
+        "CreatedAt": "2023-05-17T08:23:13Z",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/mydata1/_data",
+        "Name": "mydata1",
+        "Options": null,
+        "Scope": "local"
+    }
+]
+PS D:\docker\tempbuild> docker run -d --name withvolume --mount source=mydata1,destination=/root/volume nginx
+c7a59c3ed13ff7fcd271125022ca168cd8e53e4e5fc5737496e716349c30add3
+PS D:\docker\tempbuild> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS         PORTS     NAM
+ES
+c7a59c3ed13f   nginx     "/docker-entrypoint.…"   10 seconds ago   Up 8 seconds   80/tcp    wit
+hvolume
+PS D:\docker\tempbuild> docker inspect withvolume | grep Mounts -A 10
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:29
++ docker inspect withvolume | grep Mounts -A 10
++                             ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:29
++ docker inspect withvolume | grep Mounts -A 10
++                             ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\docker\tempbuild> docker inspect withvolume | findstr Mounts -A 10
+FINDSTR: Cannot open -A
+FINDSTR: Cannot open 10
+PS D:\docker\tempbuild> docker inspect withvolume | findstr Mounts 
+            "Mounts": [
+        "Mounts": [
+PS D:\docker\tempbuild> docker inspect withvolume | findstr Mounts -A
+FINDSTR: Cannot open -A
+PS D:\docker\tempbuild> docker inspect withvolume | findstr Mounts 
+            "Mounts": [
+        "Mounts": [
+PS D:\docker\tempbuild> docker inspect withvolume 
+[
+    {
+        "Id": "c7a59c3ed13ff7fcd271125022ca168cd8e53e4e5fc5737496e716349c30add3",
+        "Created": "2023-05-17T08:26:23.678467523Z",
+        "Path": "/docker-entrypoint.sh",
+        "Args": [
+            "nginx",
+            "-g",
+            "daemon off;"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 19978,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-05-17T08:26:24.754334319Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:448a08f1d2f94e8db6db9286fd77a3a4f3712786583720a12f1648abb8cace25",
+        "ResolvConfPath": "/var/lib/docker/containers/c7a59c3ed13ff7fcd271125022ca168cd8e53e4e5
+fc5737496e716349c30add3/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/c7a59c3ed13ff7fcd271125022ca168cd8e53e4e5fc
+5737496e716349c30add3/hostname",
+        "HostsPath": "/var/lib/docker/containers/c7a59c3ed13ff7fcd271125022ca168cd8e53e4e5fc573
+7496e716349c30add3/hosts",
+        "LogPath": "/var/lib/docker/containers/c7a59c3ed13ff7fcd271125022ca168cd8e53e4e5fc57374
+96e716349c30add3/c7a59c3ed13ff7fcd271125022ca168cd8e53e4e5fc5737496e716349c30add3-json.log",
+        "Name": "/withvolume",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                49,
+                95
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "volume",
+                    "Source": "mydata1",
+                    "Target": "/root/volume"
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/889b98c3057c41ad1f2c0fbe60c9a922e0cd61f0c
+4167c3da34e1cc91d6ccdee-init/diff:/var/lib/docker/overlay2/16c1107bca4ad9f8a3a09ab10608093a25eb
+1e0ee6a4cc075d41b78b366a5033/diff:/var/lib/docker/overlay2/1ee617c10f9c624268105a929e15f56800e2
+fd55dce9ea0369957a418658cba7/diff:/var/lib/docker/overlay2/b27136b97e08ed5b64595147fa4673de1377
+4112e246795535798425320f6e3d/diff:/var/lib/docker/overlay2/d0bd15ab49eb327a9e5906aacf66679557e7
+b9c4647e6755ee1027a3bdf5fa8a/diff:/var/lib/docker/overlay2/6db283a244c8fa4541d57823683f8a7a65b1
+b4f9cca16812734f5ae6cf14620c/diff:/var/lib/docker/overlay2/1652a6d1fecb25db1ecbb7931e5c2471fba0
+a0051397de45140f27aad3c55fea/diff",
+                "MergedDir": "/var/lib/docker/overlay2/889b98c3057c41ad1f2c0fbe60c9a922e0cd61f0
+c4167c3da34e1cc91d6ccdee/merged",
+                "UpperDir": "/var/lib/docker/overlay2/889b98c3057c41ad1f2c0fbe60c9a922e0cd61f0c
+4167c3da34e1cc91d6ccdee/diff",
+                "WorkDir": "/var/lib/docker/overlay2/889b98c3057c41ad1f2c0fbe60c9a922e0cd61f0c4
+167c3da34e1cc91d6ccdee/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "mydata1",
+                "Source": "/var/lib/docker/volumes/mydata1/_data",
+                "Destination": "/root/volume",
+                "Driver": "local",
+                "Mode": "z",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "c7a59c3ed13f",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NGINX_VERSION=1.23.4",
+                "NJS_VERSION=0.7.11",
+                "PKG_RELEASE=1~bullseye"
+            ],
+            "Cmd": [
+                "nginx",
+                "-g",
+                "daemon off;"
+            ],
+            "Image": "nginx",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/docker-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "maintainer": "NGINX Docker Maintainers \u003cdocker-maint@nginx.com\u003e"
+            },
+            "StopSignal": "SIGQUIT"
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "d97704c2e4070abda679dde862333cd7bef436727238001e2f31e4c54ec90db6",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": null
+            },
+            "SandboxKey": "/var/run/docker/netns/d97704c2e407",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "02f1d434b2020e68fca893276c95a5a532c030c042e32b323a2c40ac1e42d88d",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "bbc4f49dd6b0b97ef376a62f4f06e3d6fb99ed255f2e76e1f4207aa64d0f7
+7c4",
+                    "EndpointID": "02f1d434b2020e68fca893276c95a5a532c030c042e32b323a2c40ac1e42
+d88d",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+PS D:\docker\tempbuild> cd..
+PS D:\docker> cd..
+PS D:\> cd '.\Assignment 4.1\'
+cd : Cannot find path 'D:\Assignment 4.1\' because it does not exist.
+At line:1 char:1
++ cd '.\Assignment 4.1\'
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\Assignment 4.1\:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+cd : Cannot find path 'D:\Assignment 4.1\' because it does not exist.
+At line:1 char:1
++ cd '.\Assignment 4.1\'
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\Assignment 4.1\:String) [Set-Location], Ite
+   mNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS D:\> cd Assignment 4.1
+>> TerminatingError(Set-Location): "A positional parameter cannot be found that accepts argument '4.1'."
+Set-Location : A positional parameter cannot be found that accepts argument '4.1'.
+At line:1 char:1
++ cd Assignment 4.1
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+Set-Location : A positional parameter cannot be found that accepts argument '4.1'.
+At line:1 char:1
++ cd Assignment 4.1
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLo
+   cationCommand
+
+PS D:\> cd Assignment 4.2
+>> TerminatingError(Set-Location): "A positional parameter cannot be found that accepts argument '4.2'."
+Set-Location : A positional parameter cannot be found that accepts argument '4.2'.
+At line:1 char:1
++ cd Assignment 4.2
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+Set-Location : A positional parameter cannot be found that accepts argument '4.2'.
+At line:1 char:1
++ cd Assignment 4.2
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLo
+   cationCommand
+
+PS D:\> ls
+
+
+    Directory: D:\
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        16-05-2023     00:20                .ipynb_checkpoints
+d-----        11-04-2023     17:39                .vscode
+d-----        16-04-2023     14:41                Assignment 2.1
+d-----        16-04-2023     16:56                Assignment 2.2
+d-----        15-05-2023     18:26                Assignment 3.1
+d-----        17-05-2023     15:25                Assignment 4.2
+d-----        23-03-2023     16:05                code
+d-----        16-05-2023     02:00                datasets
+d-----        17-05-2023     13:26                docker
+d-----        10-05-2023     16:58                insurance
+d-----        04-10-2022     16:02                kworking
+d-----        19-03-2023     18:24                mlflow
+d-----        05-04-2023     12:55                mlruns
+d-----        19-03-2023     17:58                mnt
+d-----        18-04-2023     15:56                New folder
+d-----        01-05-2023     12:45                packaging_tutorial
+d-----        11-04-2023     17:45                pep
+d-----        21-04-2023     12:30                ppppp
+d-----        19-03-2023     18:37                pydataberlin-2019-master
+d-----        11-03-2023     13:44                rj
+-a----        17-05-2023     14:01          79567 docker.txt
+-a----        11-05-2023     00:14            469 Dockerfile
+-a----        11-05-2023     00:26          40103 Exercise-Managing-Images.pdf
+-a----        11-05-2023     00:07             30 index.html
+-a----        16-05-2023     02:28            829 linear.pkl
+-a----        16-05-2023     01:55         409488 my_filename
+-a----        12-04-2023     16:54          20542 Untitled.ipynb
+-a----        16-05-2023     02:32          17573 Untitled1.ipynb
+
+
+PS D:\> cd  Assignment 4.2
+>> TerminatingError(Set-Location): "A positional parameter cannot be found that accepts argument '4.2'."
+Set-Location : A positional parameter cannot be found that accepts argument '4.2'.
+At line:1 char:1
++ cd  Assignment 4.2
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+Set-Location : A positional parameter cannot be found that accepts argument '4.2'.
+At line:1 char:1
++ cd  Assignment 4.2
++ ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLo
+   cationCommand
+
+PS D:\>  Assignment 4.2
+Assignment : The term 'Assignment' is not recognized as the name of a cmdlet, function, script file, or operable 
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:2
++  Assignment 4.2
++  ~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Assignment:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+Assignment : The term 'Assignment' is not recognized as the name of a cmdlet, function,
+script file, or operable program. Check the spelling of the name, or if a path was included,
+verify that the path is correct and try again.
+At line:1 char:2
++  Assignment 4.2
++  ~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Assignment:String) [], CommandNotFoundExceptio
+   n
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\> cd Assignment 4.2
+>> TerminatingError(Set-Location): "A positional parameter cannot be found that accepts argument '4.2'."
+Set-Location : A positional parameter cannot be found that accepts argument '4.2'.
+At line:1 char:1
++ cd Assignment 4.2
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+Set-Location : A positional parameter cannot be found that accepts argument '4.2'.
+At line:1 char:1
++ cd Assignment 4.2
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Set-Location], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.SetLo
+   cationCommand
+
+PS D:\> cd
+
+PS D:\> cd
+PS D:\> cd '.\Assignment 4.1\'
+cd : Cannot find path 'D:\Assignment 4.1\' because it does not exist.
+At line:1 char:1
++ cd '.\Assignment 4.1\'
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\Assignment 4.1\:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+cd : Cannot find path 'D:\Assignment 4.1\' because it does not exist.
+At line:1 char:1
++ cd '.\Assignment 4.1\'
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\Assignment 4.1\:String) [Set-Location], Ite
+   mNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS D:\> cd '.\Assignment 4.2\'
+PS D:\Assignment 4.2> docker image build -t price_prediction .
+[+] Building 95.1s (11/11) FINISHED
+ => [internal] load build definition from Dockerfile                                      0.1s
+ => => transferring dockerfile: 653B                                                      0.0s
+ => [internal] load .dockerignore                                                         0.1s
+ => => transferring context: 2B                                                           0.0s
+ => [internal] load metadata for docker.io/library/python:latest                          8.3s
+ => [auth] library/python:pull token for registry-1.docker.io                             0.0s
+ => [1/5] FROM docker.io/library/python:latest@sha256:b9683fa80e22970150741c974f45bf1d2  84.8s
+ => => resolve docker.io/library/python:latest@sha256:b9683fa80e22970150741c974f45bf1d25  0.1s
+ => => sha256:9cdadd40055fb82fef74a0a38f29fb1ee7b6922e18370ebdc3502 196.85MB / 196.85MB  66.8s
+ => => sha256:b9683fa80e22970150741c974f45bf1d25856bd76443ea561df4e6fc00 2.14kB / 2.14kB  0.0s
+ => => sha256:5d79063a01c561833dc6546d4e647fda0121a59e1a9a17874a3e3085 15.76MB / 15.76MB  7.5s
+ => => sha256:4eedd9c5abf7e5f63753a5e788cb0872a715fa1141e8ce5ea87638e 54.58MB / 54.58MB  42.0s
+ => => sha256:181e49146bfdc8643ebe0f66cd06f27f42df40a0921438e96770dab097 2.01kB / 2.01kB  0.0s
+ => => sha256:815c8c75dfc08272d817d6bbcd0ac034c3bd718ba566bfe6e3f47f06f9 7.52kB / 7.52kB  0.0s
+ => => extracting sha256:5d79063a01c561833dc6546d4e647fda0121a59e1a9a17874a3e30854555475  0.5s
+ => => sha256:2a12d0031f3fc457f41eaa0e29c0eaf4ba1376735aa940268ebccc76a 6.29MB / 6.29MB  11.0s
+ => => sha256:24685c45a0666ce4c4fd2549486e75dddb514a707f696efffb17213 20.00MB / 20.00MB  27.5s
+ => => sha256:6ba57ec00f34b6d56ddaa10db393ec13c400f04ca2e42f6253880e71d5c2b 244B / 244B  28.5s
+ => => sha256:71bcc9787aa73b1ba974e185b1a5e3c8f87acf7bdd2728045367944fa 3.08MB / 3.08MB  31.9s
+ => => extracting sha256:4eedd9c5abf7e5f63753a5e788cb0872a715fa1141e8ce5ea87638e6cd370a4  2.1s
+ => => extracting sha256:9cdadd40055fb82fef74a0a38f29fb1ee7b6922e18370ebdc3502ec66f79fa  14.2s
+ => => extracting sha256:2a12d0031f3fc457f41eaa0e29c0eaf4ba1376735aa940268ebccc76abb49f0  0.5s
+ => => extracting sha256:24685c45a0666ce4c4fd2549486e75dddb514a707f696efffb172135bc73a1a  0.7s
+ => => extracting sha256:6ba57ec00f34b6d56ddaa10db393ec13c400f04ca2e42f6253880e71d5c2bdb  0.0s
+ => => extracting sha256:71bcc9787aa73b1ba974e185b1a5e3c8f87acf7bdd2728045367944faca54cd  1.0s
+ => [internal] load build context                                                         0.1s
+ => => transferring context: 10.07kB                                                      0.0s
+ => [2/5] WORKDIR /usr/app/src                                                            1.4s
+ => [3/5] COPY file/ingest_data.py ./                                                     0.1s
+ => [4/5] COPY file/train.py ./                                                           0.1s
+ => [5/5] COPY file/score.py ./                                                           0.1s
+ => exporting to image                                                                    0.2s
+ => => exporting layers                                                                   0.1s
+ => => writing image sha256:3cec9192884c6d7459283187c607e2bd74be7409239cbc3596248f997d10  0.0s
+ => => naming to docker.io/library/price_prediction                                       0.0s
+PS D:\Assignment 4.2> docker images
+REPOSITORY                               TAG       IMAGE ID       CREATED              SIZE
+price_prediction                         latest    3cec9192884c   About a minute ago   920MB
+rjshah70r/nanotest                       latest    5be0f58fdcba   2 hours ago          146MB
+ubuntu                                   bionic    97ba4bbc97fc   5 days ago           63.2MB
+registry.hub.docker.com/library/ubuntu   bionic    97ba4bbc97fc   5 days ago           63.2MB
+mynginx                                  latest    201d690b17f2   6 days ago           148MB
+hello-world                              latest    9c7a54a9a43c   12 days ago          13.3kB
+httpd                                    latest    28505717e3ae   13 days ago          145MB
+nginx                                    latest    448a08f1d2f9   13 days ago          142MB
+jenkins/jenkins                          lts       976459dc87b0   13 days ago          472MB
+jasonc/dockerping                        latest    4014e934eed5   2 weeks ago          124MB
+debian                                   latest    34b4fa67dc04   2 weeks ago          124MB
+docker/getting-started                   latest    3e4394f6b72f   4 months ago         47MB
+PS D:\Assignment 4.2> docker run --name Assignment4.2 -it price_prediction
+Traceback (most recent call last):
+  File "/usr/app/src/./ingest_data.py", line 11, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+PS D:\Assignment 4.2> docker image build -t price_prediction .
+[+] Building 0.2s (2/2) FINISHED
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 654B                                                     0.1s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+Dockerfile:2
+--------------------
+   1 |     #Deriving the latest base image
+   2 | >>> FROM Price Prediction
+   3 |
+   4 |
+--------------------
+ERROR: failed to solve: dockerfile parse error on line 2: FROM requires either one or three ar
+guments
+PS D:\Assignment 4.2> docker image build -t price_prediction .
+[+] Building 7.8s (10/14)
+ => [internal] load .dockerignore                                                        0.0s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 795B                                                     0.0s
+ => [internal] load metadata for docker.io/library/python:latest                         6.5s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [1/9] FROM docker.io/library/python:latest@sha256:b9683fa80e22970150741c974f45bf1d2  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 131B                                                        0.0s
+ => CACHED [2/9] WORKDIR /usr/app/src                                                    0.0s
+ => CANCELED [3/9] RUN apt update -y                                                     1.2s
+ => CACHED [4/9] RUN python -m pip install -upgrade pip                                  0.0s
+ => ERROR [5/9] COPY requirements.txt .                                                  0.0s
+------
+ > [5/9] COPY requirements.txt .:
+------
+Dockerfile:16
+--------------------
+  14 |     RUN apt update -y
+  15 |     RUN python -m pip install -upgrade pip
+  16 | >>> COPY requirements.txt .
+  17 |     RUN pip install --no-cache-dir -r /code/requirements.txt
+  18 |     COPY file/ingest_data.py ./
+--------------------
+ERROR: failed to solve: failed to compute cache key: failed to calculate checksum of ref moby:
+:rhju8vovk4ieh9qevbl478lqx: "/requirements.txt": not found
+PS D:\Assignment 4.2> docker image build -t price_prediction .
+[+] Building 22.5s (8/13)
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 795B                                                     0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load metadata for docker.io/library/python:latest                         3.9s
+ => [1/9] FROM docker.io/library/python:latest@sha256:b9683fa80e22970150741c974f45bf1d2  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 21.66kB                                                     0.1s
+ => CACHED [2/9] WORKDIR /usr/app/src                                                    0.0s
+ => [3/9] RUN apt update -y                                                             14.7s
+ => ERROR [4/9] RUN python -m pip install -upgrade pip                                   3.8s
+------
+ > [4/9] RUN python -m pip install -upgrade pip:
+#0 3.494
+#0 3.494 Usage:
+#0 3.494   /usr/local/bin/python -m pip install [options] <requirement specifier> [package-ind
+ex-options] ...
+#0 3.494   /usr/local/bin/python -m pip install [options] -r <requirements file> [package-inde
+x-options] ...
+#0 3.494   /usr/local/bin/python -m pip install [options] [-e] <vcs project url> ...
+#0 3.494   /usr/local/bin/python -m pip install [options] [-e] <local project path> ...
+#0 3.494   /usr/local/bin/python -m pip install [options] <archive url/path> ...
+#0 3.494
+#0 3.494 no such option: -u
+------
+Dockerfile:15
+--------------------
+  13 |     #to COPY the remote file at working directory in container
+  14 |     RUN apt update -y
+  15 | >>> RUN python -m pip install -upgrade pip
+  16 |     COPY requirements.txt .
+  17 |     RUN pip install --no-cache-dir -r /code/requirements.txt
+--------------------
+ERROR: failed to solve: process "/bin/sh -c python -m pip install -upgrade pip" did not comple
+te successfully: exit code: 2
+PS D:\Assignment 4.2> docker image build -t price_prediction .
+[+] Building 13.7s (10/13)
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 796B                                                     0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load metadata for docker.io/library/python:latest                         4.0s
+ => [1/9] FROM docker.io/library/python:latest@sha256:b9683fa80e22970150741c974f45bf1d2  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 168B                                                        0.1s
+ => CACHED [2/9] WORKDIR /usr/app/src                                                    0.0s
+ => CACHED [3/9] RUN apt update -y                                                       0.0s
+ => [4/9] RUN python -m pip install --upgrade pip                                        7.3s
+ => [5/9] COPY requirements.txt .                                                        0.2s
+ => ERROR [6/9] RUN pip install --no-cache-dir -r /code/requirements.txt                 2.1s
+------
+ > [6/9] RUN pip install --no-cache-dir -r /code/requirements.txt:
+#0 1.756 ERROR: Could not open requirements file: [Errno 2] No such file or directory: '/code/
+requirements.txt'
+------
+Dockerfile:17
+--------------------
+  15 |     RUN python -m pip install --upgrade pip
+  16 |     COPY requirements.txt .
+  17 | >>> RUN pip install --no-cache-dir -r /code/requirements.txt
+  18 |     COPY file/ingest_data.py ./
+  19 |     COPY file/train.py ./
+--------------------
+ERROR: failed to solve: process "/bin/sh -c pip install --no-cache-dir -r /code/requirements.t
+xt" did not complete successfully: exit code: 1
+PS D:\Assignment 4.2> docker image build -t price_prediction .
+[+] Building 6.6s (10/13)
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 790B                                                     0.0s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load metadata for docker.io/library/python:latest                         4.2s
+ => [1/9] FROM docker.io/library/python:latest@sha256:b9683fa80e22970150741c974f45bf1d2  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 168B                                                        0.0s
+ => CACHED [2/9] WORKDIR /usr/app/src                                                    0.0s
+ => CACHED [3/9] RUN apt update -y                                                       0.0s
+ => CACHED [4/9] RUN python -m pip install --upgrade pip                                 0.0s
+ => CACHED [5/9] COPY requirements.txt .                                                 0.0s
+ => ERROR [6/9] RUN pip install --no-cache-dir -r requirements.txt                       2.3s
+------
+ > [6/9] RUN pip install --no-cache-dir -r requirements.txt:
+#0 1.900 Processing /C:/Windows/TEMP/abs_91fu4tfkih/croots/recipe/anaconda-project_16603398908
+74/work (from -r requirements.txt (line 5))
+#0 1.907 ERROR: Could not install packages due to an OSError: [Errno 2] No such file or direct
+ory: '/C:/Windows/TEMP/abs_91fu4tfkih/croots/recipe/anaconda-project_1660339890874/work'
+#0 1.907
+------
+Dockerfile:17
+--------------------
+  15 |     RUN python -m pip install --upgrade pip
+  16 |     COPY requirements.txt .
+  17 | >>> RUN pip install --no-cache-dir -r requirements.txt
+  18 |     COPY file/ingest_data.py ./
+  19 |     COPY file/train.py ./
+--------------------
+ERROR: failed to solve: process "/bin/sh -c pip install --no-cache-dir -r requirements.txt" di
+d not complete successfully: exit code: 1
+PS D:\Assignment 4.2> docker image build -t price_prediction .
+[+] Building 8.5s (11/14)
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 793B                                                     0.1s
+ => [internal] load metadata for docker.io/library/python:latest                         5.8s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [1/9] FROM docker.io/library/python:latest@sha256:b9683fa80e22970150741c974f45bf1d2  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 168B                                                        0.0s
+ => CACHED [2/9] WORKDIR /usr/app/src                                                    0.0s
+ => CACHED [3/9] RUN apt update -y                                                       0.0s
+ => CACHED [4/9] RUN python -m pip install --upgrade pip                                 0.0s
+ => CACHED [5/9] COPY requirements.txt ./                                                0.0s
+ => ERROR [6/9] RUN pip install --no-cache-dir -r ./requirements.txt                     2.5s
+------
+ > [6/9] RUN pip install --no-cache-dir -r ./requirements.txt:
+#0 1.995 Processing /C:/Windows/TEMP/abs_91fu4tfkih/croots/recipe/anaconda-project_16603398908
+74/work (from -r ./requirements.txt (line 5))
+#0 2.004 ERROR: Could not install packages due to an OSError: [Errno 2] No such file or direct
+ory: '/C:/Windows/TEMP/abs_91fu4tfkih/croots/recipe/anaconda-project_1660339890874/work'
+#0 2.004
+------
+Dockerfile:17
+--------------------
+  15 |     RUN python -m pip install --upgrade pip
+  16 |     COPY requirements.txt ./
+  17 | >>> RUN pip install --no-cache-dir -r ./requirements.txt
+  18 |     COPY file/ingest_data.py ./
+  19 |     COPY file/train.py ./
+--------------------
+ERROR: failed to solve: process "/bin/sh -c pip install --no-cache-dir -r ./requirements.txt"
+did not complete successfully: exit code: 1
+PS D:\Assignment 4.2> docker image build -t price_prediction .
+[+] Building 228.3s (15/15) FINISHED
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 793B                                                     0.1s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.0s
+ => [internal] load metadata for docker.io/library/python:latest                         6.7s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [1/9] FROM docker.io/library/python:latest@sha256:b9683fa80e22970150741c974f45bf1d2  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 226B                                                        0.1s
+ => CACHED [2/9] WORKDIR /usr/app/src                                                    0.0s
+ => CACHED [3/9] RUN apt update -y                                                       0.0s
+ => CACHED [4/9] RUN python -m pip install --upgrade pip                                 0.0s
+ => [5/9] COPY requirements.txt ./                                                       0.1s
+ => [6/9] RUN pip install --no-cache-dir -r ./requirements.txt                         216.0s
+ => [7/9] COPY file/ingest_data.py ./                                                    0.1s
+ => [8/9] COPY file/train.py ./                                                          0.1s
+ => [9/9] COPY file/score.py ./                                                          0.1s
+ => exporting to image                                                                   4.7s
+ => => exporting layers                                                                  4.7s
+ => => writing image sha256:f343fe4badc657298db954be9f4d321c75bac0fbcadd35d34e060d6ddc1  0.0s
+ => => naming to docker.io/library/price_prediction                                      0.0s
+PS D:\Assignment 4.2> docker images
+REPOSITORY                               TAG       IMAGE ID       CREATED          SIZE
+price_prediction                         latest    f343fe4badc6   14 seconds ago   1.35GB
+<none>                                   <none>    3cec9192884c   41 minutes ago   920MB
+rjshah70r/nanotest                       latest    5be0f58fdcba   3 hours ago      146MB
+ubuntu                                   bionic    97ba4bbc97fc   5 days ago       63.2MB
+registry.hub.docker.com/library/ubuntu   bionic    97ba4bbc97fc   5 days ago       63.2MB
+mynginx                                  latest    201d690b17f2   6 days ago       148MB
+hello-world                              latest    9c7a54a9a43c   12 days ago      13.3kB
+httpd                                    latest    28505717e3ae   13 days ago      145MB
+nginx                                    latest    448a08f1d2f9   13 days ago      142MB
+jenkins/jenkins                          lts       976459dc87b0   13 days ago      472MB
+jasonc/dockerping                        latest    4014e934eed5   2 weeks ago      124MB
+debian                                   latest    34b4fa67dc04   2 weeks ago      124MB
+docker/getting-started                   latest    3e4394f6b72f   4 months ago     47MB
+PS D:\Assignment 4.2> docker run --name Assignment4.2 -it price_prediction
+docker: Error response from daemon: Conflict. The container name "/Assignment4.2" is already i
+n use by container "d4ecbb72ef03e816a8bf736446770cd82002f87c842dc7eb00bd21283c735b8d". You hav
+e to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+PS D:\Assignment 4.2> docker run --name Assignment -it price_prediction
+usage: ingest_data.py [-h] [--DOWNLOAD_ROOT DOWNLOAD_ROOT]
+ingest_data.py: error: unrecognized arguments: /train.py /score.py
+PS D:\Assignment 4.2> docker image build -t price_prediction .
+[+] Building 7.4s (15/15) FINISHED
+ => [internal] load build definition from Dockerfile                                     0.1s
+ => => transferring dockerfile: 793B                                                     0.1s
+ => [internal] load .dockerignore                                                        0.1s
+ => => transferring context: 2B                                                          0.1s
+ => [internal] load metadata for docker.io/library/python:latest                         6.9s
+ => [auth] library/python:pull token for registry-1.docker.io                            0.0s
+ => [1/9] FROM docker.io/library/python:latest@sha256:b9683fa80e22970150741c974f45bf1d2  0.0s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 10.02kB                                                     0.0s
+ => CACHED [2/9] WORKDIR /usr/app/src                                                    0.0s
+ => CACHED [3/9] RUN apt update -y                                                       0.0s
+ => CACHED [4/9] RUN python -m pip install --upgrade pip                                 0.0s
+ => CACHED [5/9] COPY requirements.txt ./                                                0.0s
+ => CACHED [6/9] RUN pip install --no-cache-dir -r ./requirements.txt                    0.0s
+ => [7/9] COPY file/ingest_data.py ./                                                    0.0s
+ => [8/9] COPY file/train.py ./                                                          0.1s
+ => [9/9] COPY file/score.py ./                                                          0.1s
+ => exporting to image                                                                   0.1s
+ => => exporting layers                                                                  0.1s
+ => => writing image sha256:989225558b234bc9ef8ea339f8ab93be31ffa3c4ab0aa0bd51dde0a65d7  0.0s
+ => => naming to docker.io/library/price_prediction                                      0.0s
+PS D:\Assignment 4.2> docker run --name Assignment -it price_prediction
+
+PS D:\Assignment 4.2> docker push price_prediction
+Using default tag: latest
+The push refers to repository [docker.io/library/price_prediction]
+2da228b1c037: Preparing
+3e4c200e0b4e: Preparing
+9f5387246291: Preparing
+2cff94010375: Preparing
+72963c382938: Preparing
+5071c700bd2c: Waiting
+a6769673f2d3: Waiting
+8cfc09e073ed: Waiting
+889828f94722: Waiting
+b0f747a5176b: Waiting
+7dac77253a2b: Waiting
+0007505dc811: Waiting
+f43725f97b9f: Waiting
+9c42af2c6418: Waiting
+d96e248f10e6: Waiting
+d925e0fae4e6: Waiting
+denied: requested access to the resource is denied
+PS D:\Assignment 4.2> docker push price_prediction
+Using default tag: latest
+The push refers to repository [docker.io/library/price_prediction]
+2da228b1c037: Preparing
+3e4c200e0b4e: Preparing
+9f5387246291: Preparing
+2cff94010375: Preparing
+72963c382938: Preparing
+5071c700bd2c: Waiting
+a6769673f2d3: Waiting
+8cfc09e073ed: Waiting
+889828f94722: Waiting
+b0f747a5176b: Waiting
+7dac77253a2b: Waiting
+0007505dc811: Waiting
+f43725f97b9f: Waiting
+9c42af2c6418: Waiting
+d96e248f10e6: Waiting
+d925e0fae4e6: Waiting
+denied: requested access to the resource is denied
+PS D:\Assignment 4.2> docker username
+docker: 'username' is not a docker command.
+See 'docker --help'
+PS D:\Assignment 4.2> docker login
+Authenticating with existing credentials...
+Login Succeeded
+
+Logging in with your password grants your terminal complete access to your account.
+For better security, log in with a limited-privilege personal access token. Learn more at http
+s://docs.docker.com/go/access-tokens/
+PS D:\Assignment 4.2> docker push price_prediction
+Using default tag: latest
+The push refers to repository [docker.io/library/price_prediction]
+2da228b1c037: Preparing
+3e4c200e0b4e: Preparing
+9f5387246291: Preparing
+2cff94010375: Preparing
+72963c382938: Preparing
+5071c700bd2c: Waiting
+a6769673f2d3: Waiting
+8cfc09e073ed: Waiting
+889828f94722: Waiting
+b0f747a5176b: Waiting
+7dac77253a2b: Waiting
+0007505dc811: Waiting
+f43725f97b9f: Waiting
+9c42af2c6418: Waiting
+d96e248f10e6: Waiting
+d925e0fae4e6: Waiting
+denied: requested access to the resource is denied
+PS D:\Assignment 4.2> docker image rmi Assignment
+Error response from daemon: invalid reference format: repository name must be lowercase
+PS D:\Assignment 4.2> docker rmi Assignment
+Error response from daemon: invalid reference format: repository name must be lowercase
+PS D:\Assignment 4.2> docker rmi assignment
+Error response from daemon: No such image: assignment:latest
+PS D:\Assignment 4.2> docker rmi Assignment
+Error response from daemon: invalid reference format: repository name must be lowercase
